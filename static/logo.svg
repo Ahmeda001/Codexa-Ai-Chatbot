@@ -1,0 +1,22 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+>
+  <!-- White circular background -->
+  <circle cx="12" cy="12" r="12" fill="white" />
+
+  <!-- Icon paths -->
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M12 3v2m0 14v2m9-9h-2m-14 0H3
+       m14.95-6.95l-1.414 1.414
+       M6.464 17.536l-1.414 1.414
+       M17.536 17.536l1.414 1.414
+       M6.464 6.464L5.05 5.05
+       M12 8a4 4 0 100 8 4 4 0 000-8z"
+  />
+</svg>
