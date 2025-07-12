@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/chat.js" defer></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+
+  <body class="relative min-h-screen flex flex-col">
+    <!-- Background -->
+    <div class="gradient-bg">
+      <div class="blur-ellipse-1"></div>
+      <div class="blur-ellipse-2"></div>
+    </div>
+
+    <!-- Main content -->
+    <div
+      class="flex justify-center items-center min-h-[calc(100vh-80px)] px-4 z-10"
+    >
+      <div class="w-full max-w-2xl">
+        <!-- Chat window -->
+        <div
+          id="chat-window"
+          class="rounded-3xl p-8 pt-20 mb-6 min-h-[500px] flex flex-col justify-start backdrop-blur-xl bg-transparent"
+        >
+          <!-- Welcome Screen -->
+          <div id="welcome-screen" class="text-center mt-4">
+            <div class="mb-20">
+              <div
+                class="w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-14 h-14 text-indigo-600 ai-logo-pulse"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3v2m0 14v2m9-9h-2m-14 0H3m14.95-6.95l-1.414 1.414M6.464 17.536l-1.414 1.414M17.536 17.536l1.414 1.414M6.464 6.464L5.05 5.05M12 8a4 4 0 100 8 4 4 0 000-8z"
+                  />
+                </svg>
+              </div>
+              <h2 class="text-2xl font-semibold text-gray-800 mb-3">
+                Ask our AI anything
+              </h2>
+            </div>
+
+            <div>
+              <h3 class="text-base text-gray-900 pt-20 py-3 text-center">
+                Suggestions on what to ask Our AI
+              </h3>
+              <div class="flex flex-wrap justify-center gap-3">
+                <div
+                  class="suggestion-card rounded-xl p-2 px-4 cursor-pointer text-center text-xs animate-fade-in"
+                  onclick="fillSuggestion('What can I ask you to do?')"
+                >
+                  <p class="text-gray-700">What can I ask you to do?</p>
+                </div>
+
+                <div
+                  class="suggestion-card rounded-xl p-2 px-4 cursor-pointer text-center text-xs animate-fade-in delay-100"
+                  onclick="fillSuggestion('Which one of my projects is performing the best?')"
+                >
+                  <p class="text-gray-700">
+                    Which one of my projects is performing the best?
+                  </p>
+                </div>
+
+                <div
+                  class="suggestion-card rounded-xl p-2 px-4 cursor-pointer text-center text-xs animate-fade-in delay-200"
+                  onclick="fillSuggestion('What projects should I be concerned about right now?')"
+                >
+                  <p class="text-gray-700">
+                    What projects should I be concerned about right now?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat messages -->
+          <div
+            id="messages-container"
+            class="hidden space-y-4 flex-grow overflow-y-auto"
+          >
+            <!-- Messages will appear here -->
+          </div>
+        </div>
+
+        <!-- Input -->
+        <!-- Enhanced Input Area -->
+        <div
+          class="flex items-center bg-white/80 backdrop-blur-md rounded-2xl p-2 shadow-xl transition-all duration-100 border border-transparent focus-within:border-purple-500"
+        >
+          <form id="chat-form" class="flex w-full items-center">
+            <!-- Floating label style input -->
+            <div class="relative w-full">
+              <input
+                id="user-input"
+                type="text"
+                placeholder="Ask me anything..."
+                class="peer w-full bg-transparent px-4 pt-5 pb-2 text-gray-800 placeholder-transparent focus:outline-none text-md transition-all"
+                required
+              />
+              <label
+                for="user-input"
+                class="absolute left-4 top-2.5 text-xs text-gray-500 transition-all opacity-100 peer-focus:opacity-0 peer-focus:translate-y-[-4px] peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400"
+              >
+                Ask me anything about your projects
+              </label>
+            </div>
+
+            <!-- Send button -->
+            <button
+              type="submit"
+              class="ml-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded-full shadow-md hover:from-blue-600 hover:to-purple-700 transition-all duration-200 transform hover:scale-110 focus:outline-none"
+            >
+              <svg
+                class="w-5 h-5 rotate-90"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function fillSuggestion(text) {
+        const userInput = document.getElementById("user-input");
+        userInput.value = text;
+        userInput.focus();
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Chat interface loaded");
+      });
+    </script>
+  </body>
+</html>

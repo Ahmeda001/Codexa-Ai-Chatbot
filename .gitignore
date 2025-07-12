@@ -1,0 +1,25 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual environment
+env/
+venv/
+ENV/
+
+
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and runtime files
+*.log
+
+# VSCode or IDE config (optional)
+.vscode/
+.idea/
+
+# Ignore bot cache folder
+bot/pycache/
